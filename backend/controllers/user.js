@@ -11,7 +11,11 @@ module.exports.register = (req, res, next) => {
 		if (!err) {
 			res.send(doc);
 		} else {
-			console.log(err);
+			if (err.code == 11000) {
+				res.status(422).send(['Duplicate email address found!']);
+			} else {
+				return next(err);
+			}
 		}
 	})
 }
