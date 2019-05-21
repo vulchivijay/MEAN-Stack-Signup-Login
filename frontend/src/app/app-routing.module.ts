@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { UserComponent } from './user/user.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
+import { SignInComponent } from './user/sign-in/sign-in.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const routes: Routes = [
   {
@@ -16,8 +18,22 @@ const routes: Routes = [
     ]
   },
   {
+    path: 'signin',
+    component: UserComponent,
+    children: [
+      {
+        path: '',
+        component: SignInComponent
+      }
+    ]
+  },
+  {
+    path: 'userprofile',
+    component: UserProfileComponent
+  },
+  {
     path: '',
-    redirectTo: '/signup',
+    redirectTo: '/signin',
     pathMatch: 'full'
   }
 ];
