@@ -15,7 +15,9 @@ export class UserService {
     password: ''
   };
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    // helpers
+  }
 
   postUser(user: User) {
     return this.http.post(environment.apiBaseUrl+'/register', user);
@@ -25,31 +27,37 @@ export class UserService {
     return this.http.post(environment.apiBaseUrl+'/authenticate', authCredentials);
   }
 
+  getUserProfile() {
+    return this.http.get(environment.apiBaseUrl+'/userProfile');
+  }
+
+  // helper methods
+
   setToken(token: string) {
     localStorage.setItem('token', token);
   }
 
-  // deleteToken(token: string) {
-  //   localStorage.removeItem('token');
-  // }
+  deleteToken(token: string) {
+    localStorage.removeItem('token');
+  }
 
-  // getUserPayload() {
-  //   var token = localStorage.getItem('token');
-  //   if (token) {
-  //     var userPayload = atob(token.split('.')[1]);
-  //     return JSON.parse(userPayload);
-  //   } else {
-  //     return null;
-  //   }
-  // }
+  getUserPayload() {
+    var token = localStorage.getItem('token');
+    if (token) {
+      var userPayload = atob(token.split('.')[1]);
+      return JSON.parse(userPayload);
+    } else {
+      return null;
+    }
+  }
 
-  // isLoggedIn() {
-  //   var userPayload = this.getUserPayload();
-  //   if (userPayload) {
-  //     return userPayload.exp > Date.now() / 1000;
-  //   } else {
-  //     return false;
-  //   }
-  // }
+  isLoggedIn() {
+    var userPayload = this.getUserPayload();
+    if (userPayload) {
+      return userPayload.exp > Date.now() / 1000;
+    } else {
+      return false;
+    }
+  }
 
 }

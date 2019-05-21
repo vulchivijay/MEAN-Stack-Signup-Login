@@ -6,6 +6,9 @@ import { SignUpComponent } from './user/sign-up/sign-up.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 
+// other
+import { AuthGuard } from './auth/auth.guard';
+
 const routes: Routes = [
   {
     path: 'signup',
@@ -29,7 +32,7 @@ const routes: Routes = [
   },
   {
     path: 'userprofile',
-    component: UserProfileComponent
+    component: UserProfileComponent, canActivate: [AuthGuard]
   },
   {
     path: '',
