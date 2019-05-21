@@ -45,5 +45,5 @@ module.exports.userProfile = (req, res, next) => {
 			else
 				return res.status(200).json({ status: true, user: _.pick(user, ['fullName','email']) });
 		}
-	)
+	);
 }

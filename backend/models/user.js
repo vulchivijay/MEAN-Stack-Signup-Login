@@ -47,7 +47,8 @@ userSchema.methods.generateJwt = function () {
 		process.env.JWT_SECRET,
 		{
 			expiresIn: process.env.JWT_EXP
-		});
+		}
+	);
 }
 
 mongoose.model('User', userSchema);

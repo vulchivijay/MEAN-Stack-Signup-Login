@@ -6,10 +6,7 @@ import { CanActivate } from '@angular/router/src/utils/preactivation';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate  {
-  canActive (
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-      return true;
-    }
+
+export class AuthGuard {
+  
 }

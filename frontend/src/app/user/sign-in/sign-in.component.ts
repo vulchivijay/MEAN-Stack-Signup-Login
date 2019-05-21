@@ -9,6 +9,7 @@ import { UserService } from './../../shared/user.service';
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.scss']
 })
+
 export class SignInComponent implements OnInit {
   emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   serverErrorMessages: string;
@@ -24,6 +25,7 @@ export class SignInComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
+    console.log(form);
     this.userService.login(form.value).subscribe(
       res => {
         this.userService.setToken(res['token']);
