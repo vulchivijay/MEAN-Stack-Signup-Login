@@ -55,8 +55,8 @@ body {
     .loggedIn-user-wrapper {
         float: right;
     }
-    .primary-menu *,
-    .loggedIn-user-wrapper * {
+    .primary-menu > *,
+    .loggedIn-user-wrapper > * {
         display: inline-block;
         vertical-align: middle;
     }
