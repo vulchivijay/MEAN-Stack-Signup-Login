@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 html {
-    box-sizing: border-box
+    box-sizing: border-box;
+    line-height: 1.2;
 }
 *,
 *::after,
@@ -14,17 +15,105 @@ html {
 }
 body {
     font-size: 16px;
-    background-color: #fff;
+    font-family: cursive, sans-serif;
+    background-color: #ffffff;
     color: #000;
 }
 .wrapper {
-    max-width: 980px;
+    max-width: 100%;
     margin: 0 auto;
     padding: 0 15px;
 }
-.alert {
+.hide {
+    display: none !important;
+}
+.alert,
+.validation-message {
     color: red;
 }
 .success {
     color: green;
+}
+.text-center {
+    text-align: center;
+}
+.validation-message {
+    font-size: 14px;
+}
+// primary bar
+.primary-bar {
+    padding: 15px 0;
+    overflow: hidden;
+    border-bottom: 1px solid #dddddd;
+    .primary-menu {
+        float: left;
+    }
+    .primary-menu div {
+        padding: 0 5px;
+        display: inline-block;
+    }
+    .loggedIn-user-wrapper {
+        float: right;
+    }
+    .primary-menu *,
+    .loggedIn-user-wrapper * {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .logout-btn-wrapper {
+        margin-left: 15px;
+    }
+    .user-name {
+        text-transform: capitalize;
+    }
+    input {
+        margin: 0;
+    }
+}
+// tabs
+.tabs-wrapper {
+    padding-bottom: 15px;
+    overflow: hidden;
+    div {
+        width: 50%;
+        text-align: center;
+        padding: 10px 0;
+        float: left;
+        cursor: pointer;
+    }
+    div.active {
+        border-bottom: 1px solid green;
+    }
+}
+// forms
+.form-control {
+    padding: 5px 0;
+    font-size: 15px;
+    label,
+    input {
+        display: block;
+    }
+    label {
+        padding-bottom: 5px;
+    }
+    input {
+        width: 100%;
+        padding: 5px 10px;
+        border-radius: 3px;
+        border: 1px solid #dddddd;
+    }
+}
+.btn {
+    margin: 15px 0;
+    padding: 8px 12px;
+    color: white;
+    cursor: pointer;
+    background-color: green;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.24);
+    border-radius: 3px;
+    border: 0;
+    transition: box-shadow 200ms ease-in;
+    &:hover {
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.24);
+    }
 }
