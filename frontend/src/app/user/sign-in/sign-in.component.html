@@ -2,15 +2,19 @@
   <div class="form-control">
       <label for="email">Email:</label>
       <input type="text" #email="ngModel" [(ngModel)]="model.email" name="email" placeholder="Enter your e-mail address" [pattern]="emailRegex" required [ngClass]="{'invalid-textbox' :signInForm.submitted && !email.valid}">
-      <div *ngIf="signInForm.submitted && email.errors?.pattern">
-        <label class="validation-message">Invalid email address.</label>
+      <div *ngIf="signInForm.submitted && email.errors">
+        <label *ngIf="email.errors.required" class="validation-message">This field is required.</label>
+        <label *ngIf="email.errors.pattern" class="validation-message">Invalid email address</label>
+        <!-- <label class="validation-message">Invalid email address.</label> -->
       </div>
   </div>
   <div class="form-control">
     <label for="password">Password:</label>
     <input type="password" #password="ngModel" [(ngModel)]="model.password" name="password"  placeholder="Enter password" minlength="6" required [ngClass]="{'invalid-textbox' :signInForm.submitted && !password.valid}">
-    <div *ngIf="signInForm.submitted && password.errors?.minlength">
-      <label class="validation-message">Minimum 6 characters</label>
+    <div *ngIf="signInForm.submitted && password.errors">
+      <label *ngIf="password.errors.required" class="validation-message">This field is required.</label>
+      <label *ngIf="password.errors.minlength" class="validation-message">Enter atleast 6 characters.</label>
+      <!-- <label class="validation-message">Minimum 6 characters</label> -->
     </div>
   </div>
   <div class="text-center">
