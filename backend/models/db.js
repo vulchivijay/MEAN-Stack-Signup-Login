@@ -9,3 +9,4 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true }, (err) => {
 });
 
 require('./user');
+require('./tickets');
