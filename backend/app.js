@@ -13,7 +13,7 @@ var app = express();
 
 // middleware
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors()); // or app.use(cors({ origion: 'http://localhost:4200'}))
 app.use(passport.initialize());
 app.use('/api', rtsIndex);
 

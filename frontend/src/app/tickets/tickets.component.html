@@ -1,0 +1,71 @@
+<div class="row">
+  <div class="col s12">
+    <div class="card">
+      <div class="row">
+        <div class="col s5">
+          <form #ticketForm="ngForm" (ngSubmit)="onSubmit(ticketForm)">
+            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="ticketsService.selectedTicket._id">
+            <div class="input-field col s12">
+              <input type="text" name="reporter" #reporter="ngModel" [(ngModel)]="ticketsService.selectedTicket.reporter" placeholder="reporter" required>
+              <label>Reporter: </label>
+            </div>
+            <div class="input-field col s12">
+              <input type="text" name="title" #title="ngModel" [(ngModel)]="ticketsService.selectedTicket.title" placeholder="title" required>
+              <label>Subject: </label>
+            </div>
+            <div class="input-field col s12">
+              <input type="text" name="complexcity" #complexcity="ngModel" [(ngModel)]="ticketsService.selectedTicket.complexcity" placeholder="complexcity" required>
+              <label>Complexcity: </label>
+            </div>
+            <div class="input-field col s12">
+              <input type="date" name="createdat" #createdat="ngModel" [(ngModel)]="ticketsService.selectedTicket.createdat" placeholder="createdat" required>
+              <label>Createdat: </label>
+            </div>
+            <div class="input-field col s12">
+              <input type="date" name="duedateat" #duedateat="ngModel" [(ngModel)]="ticketsService.selectedTicket.duedateat" placeholder="duedateat">
+              <label>Due Date: </label>
+            </div>
+            <div class="input-field col s12">
+              <input type="text" name="assignee" #assignee="ngModel" [(ngModel)]="ticketsService.selectedTicket.assignee" placeholder="assignee" required>
+              <label>Assignee: </label>
+            </div>
+            <div class="input-field col s12">
+              <button class="btn btn-default btn-green" type="submit" [disabled]="!ticketForm.valid">Submit</button>
+              <button class="btn btn-default btn-gray" type="button" (click)="resetForm(ticketForm)">Reset</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="row">
+        <div class="col s12">
+          <p>Tickets</p>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <td>Reporter</td>
+                  <td>Title</td>
+                  <td>Complexcity</td>
+                  <td>Created</td>
+                  <td>Due date</td>
+                  <td>Assignee</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let ticket of ticketsService.tickets">
+                  <td>{{ ticket.reporter }}</td>
+                  <td>{{ ticket.title }}</td>
+                  <td>{{ ticket.complexcity }}</td>
+                  <td>{{ ticket.createdat }}</td>
+                  <td>{{ ticket.duedateat }}</td>
+                  <td>{{ ticket.assignee }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
